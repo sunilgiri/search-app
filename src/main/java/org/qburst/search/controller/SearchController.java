@@ -33,7 +33,7 @@ public class SearchController {
 	}
 		
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public @ResponseBody String listNewJoinee(@RequestParam(value = "query") String q) {
+	public @ResponseBody String listNewJoinee(@RequestParam(required = true, value = "query") String q) {
 		String jsonData = "";
 		try {
 			HttpSolrServer solr = new HttpSolrServer("http://10.4.0.56:8983/solr");
