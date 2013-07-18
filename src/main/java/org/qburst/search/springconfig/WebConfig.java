@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages="com.codetutr")
+@ComponentScan(basePackages="org.qburst.search")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
 	/**
