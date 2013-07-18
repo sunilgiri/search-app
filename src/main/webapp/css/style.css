@@ -1,0 +1,11 @@
+/*style.css*/
+.search-text{
+	width : 80% !important;
+	margin : 5px !important;
+}
+.help-block{
+	margin:10px !important;
+}
+#search-btn{
+	width : 18% !important;	
+}
