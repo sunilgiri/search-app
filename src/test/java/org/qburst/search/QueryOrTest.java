@@ -13,7 +13,7 @@ import org.junit.Test;
 public class QueryOrTest {
 	@Test
 	public void test() throws SolrServerException {
-		HttpSolrServer solr = new HttpSolrServer("http://localhost:8983/solr");
+		HttpSolrServer solr = new HttpSolrServer("http://10.4.0.56:8983/solr");
 		SolrQuery query = new SolrQuery();
 		query.setQuery("HTML OR shadow");
 		query.setFields("content");

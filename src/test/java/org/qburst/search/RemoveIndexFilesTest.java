@@ -10,7 +10,7 @@ import org.junit.Test;
 public class RemoveIndexFilesTest {
 	@Test
 	public void test() throws SolrServerException, IOException {
-		HttpSolrServer server = new HttpSolrServer("http://localhost:8983/solr");
+		HttpSolrServer server = new HttpSolrServer("http://10.4.0.56:8983/solr");
 		server.deleteById("java-server-faces.pdf"); // deleteByQuery is also available
 		server.commit();
 	}
