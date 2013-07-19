@@ -5,40 +5,28 @@
 <head lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>QB Search</title>
-<link rel="stylesheet"
-	href="<c:url value="/resources/css/bootstrap.css" />" type="text/css" />
-<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />"
-	type="text/css" />
-<link rel="stylesheet"
-	href="<c:url value="/resources/css/ng-table.css" />"
-	type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />" type="text/css" />
+<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" type="text/css" />
+<!-- <link rel="stylesheet" href="<c:url value="/resources/css/ng-table.css" />"	type="text/css" /> -->
 <script src="<c:url value="/resources/lib/angular.js"/>"></script>
-<script type="text/javascript"
-	src="<c:url value="/resources/lib/jquery-1.9.1.js" />"></script>
-<script src="<c:url value="/resources/lib/ng-table.js"/>" ></script>
+<script src="<c:url value="/resources/lib/jquery-1.9.1.js" />"></script>
+<!-- <script src="<c:url value="/resources/lib/ng-table.src.js"/>" ></script>  -->
 <script src="<c:url value="/resources/js/searchApp.js"/>"></script>
 <script src="<c:url value="/resources/js/pdfSearchService.js"/>"></script>
 
 </head>
-<!-- 
-<script src="lib/angular.js"></script>
-<script src="lib/ng-table/ng-table.js"></script>
-<script src="javascript/searchApp.js"></script>
-<script src="javascript/pdfSearchService.js"></script>
- -->
 <body ng-app="searchApp">
 	<div ng-controller="SearchController">
 		<h1>PDF Search</h1>
 		<form ng-submit="submitSearch()">
-			<input type="text" class="search-text"
-				placeholder="Enter search term" ng-model="searchKeyword"> <input
-				type="submit" id="search-btn" value="Search" class="btn btn-primary">
-					<span class="help-block">Results of {{searchKeyword}}</span>
+			<input type="text" class="search-text" placeholder="Enter search term" ng-model="searchKeyword"> 
+				<input type="submit" id="search-btn" value="Search" class="btn btn-primary">
+					<span class="help-block">{{result_text}}</span>
 		</form>
-		<table ng-table="tableParams" class="table">
+		<table class="table">
 			<tr ng-repeat="result in results">
-				<td title=" ">{{result.name}}</td>
-				<td title=" ">{{result.path}}</td>
+				<td>{{result.title}}</td>
+				<td>{{result.author}}</td>
 				<td title=" "><a href="{{result.path}}" target="_blank"
 					class="btn btn-success">Download</a></td>
 			</tr>
