@@ -25,7 +25,6 @@ import org.qburst.search.model.Search;
  * 
  */
 public class QueryTest {
-	@Test
 	public void test() throws Exception {
 		HttpSolrServer solr = new HttpSolrServer("http://10.4.0.56:8983/solr");
 		SolrQuery query = new SolrQuery();

@@ -11,7 +11,6 @@ import org.apache.solr.common.SolrDocumentList;
 import org.junit.Test;
 
 public class QueryOrTest {
-	@Test
 	public void test() throws SolrServerException {
 		HttpSolrServer solr = new HttpSolrServer("http://10.4.0.56:8983/solr");
 		SolrQuery query = new SolrQuery();
