@@ -9,8 +9,12 @@ import java.util.Map;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 
+/**
+ * @author Gilsha
+ * 
+ */
 public abstract class FileMetaDataFinder {
-	public Map getMetaDataFromFile(String filePath) throws IOException{
+	public Map getMetaDataFromFile(String filePath) throws IOException {
 		File file = new File(filePath);
 		PDDocument doc = PDDocument.load(filePath);
 		PDDocumentInformation info = doc.getDocumentInformation();
