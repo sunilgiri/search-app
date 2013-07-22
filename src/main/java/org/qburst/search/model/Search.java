@@ -5,6 +5,8 @@ package org.qburst.search.model;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Cyril
@@ -14,6 +16,8 @@ public class Search {
 	private List<String> highlights = new LinkedList<String>();
 	private String author = "";
 	private String id = "";
+	private String title = "";
+	private String url = "";
 
 	public String getAuthor() {
 		return author;
@@ -37,5 +41,24 @@ public class Search {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getTitle() {
+		if (title.trim() == ""){
+			title = url.replaceAll("([\\s\\S])+/", "");
+		}
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }
