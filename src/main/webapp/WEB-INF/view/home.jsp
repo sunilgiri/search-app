@@ -17,20 +17,29 @@
 </head>
 <body ng-app="searchApp">
 	<div ng-controller="SearchController">
-		<h1>PDF Search</h1>
-		<form ng-submit="submitSearch()">
-			<input type="text" class="search-text" placeholder="Enter search term" ng-model="searchKeyword"> 
-				<input type="submit" id="search-btn" value="Search" class="btn btn-primary">
-					<span class="help-block">{{result_text}}</span>
-		</form>
-		<table class="table">
-			<tr ng-repeat="result in results">
-				<td>{{result.title}}</td>
-				<td>{{result.author}}</td>
-				<td title=" "><a href="{{result.path}}" target="_blank"
-					class="btn btn-success">Download</a></td>
-			</tr>
-		</table>
+		<div class="search-div">
+			<h1>PDF Search</h1>
+			<form ng-submit="submitSearch()">
+				<input type="text" class="search-text" placeholder="Enter search term" ng-model="searchKeyword"> 
+					<input type="submit" id="search-btn" value="Search" class="btn btn-primary">
+						<span class="help-block">{{result_text}}</span>
+			</form>
+		</div>
+		<div class="results-div">
+			<table class="table">
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Download</th>
+				</tr>
+				<tr ng-repeat="result in results">
+					<td>{{result.title}}</td>
+					<td>{{result.author}}</td>
+					<td title=" "><a href="{{result.path}}" target="_blank"
+						class="btn btn-success">Download</a></td>
+				</tr>
+			</table>
+		</div>
 
 	</div>
 </body>

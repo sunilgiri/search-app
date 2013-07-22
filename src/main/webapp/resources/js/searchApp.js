@@ -8,8 +8,11 @@ searchApp.controller("SearchController", function($scope, pdfSearchService) {
 		pdfSearchService.findResults(keyword, function(results) {
 			$scope.results = results;
 			$scope.result_text = "No result found";
-			if(results.length > 0)
+			$('.results-div').hide();
+			if(results.length > 0){
+				$('.results-div').show();
 				$scope.result_text = "Results of "+keyword;
+			}
 			$scope.$apply();
 		});
 	};
