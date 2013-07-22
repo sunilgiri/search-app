@@ -3,27 +3,24 @@
  */
 package org.qburst.search.indexer;
 
-import java.io.IOException;
+import java.io.File;
 import java.util.ArrayList;
-
-import org.apache.solr.client.solrj.SolrServerException;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
+import java.util.Map;
 
 /**
  * @author Gilsha
  * 
  */
 public interface ISearchIndexer {
-	public Boolean isFileIndexed(String id);
+	public boolean isFileIndexed(String id) throws Exception;
 
-	public void doIndexing(String fileName, String solrId);
+	public void doIndexing(File filePath)  throws Exception;
 
-	public String doSearch(String query);
+	public ArrayList<File> getFilesFromFolder()  throws Exception;
 
-	public void removeAllFilesFromIndex();
-
-	public ArrayList getFilesFromFolder();
-
-	public void shutDownSolrServer();
+	public void shutDownSolrServer()  throws Exception;
+	
+	public Map<String, String> getMetaDataFromFile(File file) throws Exception;
+	
+	public void rollbackSolrServer() throws Exception;
 }
