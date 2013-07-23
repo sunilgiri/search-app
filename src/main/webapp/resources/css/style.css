@@ -29,6 +29,6 @@ body {
 	margin : 5px !important;
 	overflow-y : scroll;
 }
-.results-div table th{
-	text-align : center !important;	
+.results-div table td{
+	border: 1px solid #dddddd !important;
 }
