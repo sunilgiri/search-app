@@ -13,6 +13,7 @@
 <!-- <script src="<c:url value="/resources/lib/ng-table.src.js"/>" ></script>  -->
 <script src="<c:url value="/resources/js/searchApp.js"/>"></script>
 <script src="<c:url value="/resources/js/pdfSearchService.js"/>"></script>
+<script src="<c:url value="/resources/js/downloadFile.js"/>"></script>
 
 </head>
 <body ng-app="searchApp">
@@ -35,7 +36,7 @@
 				<tr ng-repeat="result in results">
 					<td>{{result.title}}</td>
 					<td>{{result.author}}</td>
-					<td title=" "><a href="{{result.path}}" target="_blank"
+					<td title=" "><a onclick="downloadFile({{result}});" target="_blank"
 						class="btn btn-success">Download</a></td>
 				</tr>
 			</table>

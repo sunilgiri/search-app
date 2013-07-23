@@ -3,9 +3,17 @@
  */
 package org.qburst.search.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
@@ -60,7 +68,7 @@ public class SearchController {
 				s.setAuthor(results.get(idx).containsKey("author") ? stringify(results
 						.get(idx).get("author")) : "");
 				s.setUrl(results.get(idx).containsKey("url") ? results.get(idx)
-						.get("url") + "" : "");
+						.get("url").toString() : "");
 				s.setTitle(results.get(idx).containsKey("title") ? stringify(results
 						.get(idx).get("title")) : "");
 				mySearch.add(s);
@@ -84,4 +92,32 @@ public class SearchController {
 		}
 		return ret;
 	}
+	@RequestMapping(value = "/export", method = RequestMethod.GET)
+	public void doDownload(HttpServletRequest request,HttpServletResponse response,@RequestParam(required = true, value = "filePath") String filePath)
+			throws IOException {
+		int BUFFER_SIZE = 4096;
+		ServletContext context = request.getServletContext();
+		File downloadFile = new File(filePath);
+		String appPath = context.getRealPath("");
+		String fullPath = appPath + filePath;
+		FileInputStream inputStream = new FileInputStream(downloadFile);
+		String mimeType = context.getMimeType(fullPath);
+		if (mimeType == null) {
+			mimeType = "application/octet-stream";
+		}
+		response.setContentType(mimeType);
+		response.setContentLength((int) downloadFile.length());
+		String headerKey = "Content-Disposition";
+		String headerValue = String.format("attachment; filename=\"%s\"",downloadFile.getName());
+		response.setHeader(headerKey, headerValue);
+		OutputStream outStream = response.getOutputStream();
+		byte[] buffer = new byte[BUFFER_SIZE];
+		int bytesRead = -1;
+		while ((bytesRead = inputStream.read(buffer)) != -1) {
+			outStream.write(buffer, 0, bytesRead);
+		}
+		inputStream.close();
+		outStream.close();
+	}
+
 }
