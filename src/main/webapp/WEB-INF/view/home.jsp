@@ -48,9 +48,43 @@
 				<div id="vis">
 				</div>
 			</tab>
-			<tab heading="Upload">
-				Upload
-			</tab>
+				<tab heading="Upload">
+					<form id="fileupload" method="POST" enctype="multipart/form-data">
+				        <div class="row upload-bar">
+				            <div class="span7">
+				                <button class="btn btn-success fileinput-button">
+				                    <i class="icon-plus icon-white"></i>
+				                    <input type="file" name="files[]" multiple file-upload accept="application/pdf"/>
+				                    <span>Add files...</span>
+				                </button>
+				                <button type="submit" class="btn btn-primary start">
+				                    <i class="icon-upload icon-white"></i>
+				                    <span>Start upload</span>
+				                </button>
+				                <button type="reset" class="btn btn-warning cancel">
+				                    <i class="icon-ban-circle icon-white"></i>
+				                    <span>Cancel upload</span>
+				                </button>
+				             	<div class="upload-table-div">
+						        	<table role="presentation" class="table">
+							        	<tr>
+							        		<th>File name</th>
+							        		<th>File Size</th>
+							        		<th>File format</th>
+							        		<th>Delete</th>
+							        	</tr>
+						        		<tr ng-repeat="item in files">
+							        		<td class="item-name">{{item.name}}</td>
+							        		<td>{{item.size/(1024)}} KB</td>
+							        		<td><img ng-src={{item.response}}></img></td>
+							        		<td><img src='resources/images/delete.png' data-ng-click="deleteFile($index)"></img></td>
+						        		</tr>
+						        	</table>
+						        </div>
+				        	</div>
+				        </div>
+				    </form>
+				</tab>
 		</tabset>
 
 	</div>

@@ -50,3 +50,36 @@ body {
 .results-div table td{
 	border: 1px solid #C13A33 !important;
 }
+.fileinput-button input {
+	position: absolute;
+	margin: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	transform: translate(-300px, 0) scale(4);
+	font-size: 4px;
+	direction: ltr;
+	cursor: pointer;
+}
+.upload-bar{
+	text-align: center;
+	margin: 20px;
+	border: 1px solid #428BCA !important;
+	border-radius: 8px;
+}
+.upload-bar div{
+	margin-top : 16px;
+}
+.upload-table-div{
+	height: 350px !important;
+	overflow-y: auto;
+}
+.upload-table-div table th{
+	text-align: center;
+	border: 1px solid #dddddd !important;
+}
+.upload-table-div table td{
+	border: 1px solid #dddddd !important;
+}
+.upload-table-div .item-name{
+	text-align: left !important;
+}
