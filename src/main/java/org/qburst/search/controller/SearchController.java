@@ -62,16 +62,18 @@ public class SearchController {
 			int idx = 0;
 			for (String key : highlights.keySet()) {
 				List<String> data = highlights.get(key).get("content");
-				Search s = new Search();
-				s.setHighlights(data);
-				s.setId(key);
-				s.setAuthor(results.get(idx).containsKey("author") ? stringify(results
-						.get(idx).get("author")) : "");
-				s.setUrl(results.get(idx).containsKey("url") ? results.get(idx)
-						.get("url").toString() : "");
-				s.setTitle(results.get(idx).containsKey("title") ? stringify(results
-						.get(idx).get("title")) : "");
-				mySearch.add(s);
+				if (data != null) {
+					Search s = new Search();
+					s.setHighlights(data);
+					s.setId(key);
+					s.setAuthor(results.get(idx).containsKey("author") ? stringify(results
+							.get(idx).get("author")) : "");
+					s.setUrl(results.get(idx).containsKey("url") ? results
+							.get(idx).get("url").toString() : "");
+					s.setTitle(results.get(idx).containsKey("title") ? stringify(results
+							.get(idx).get("title")) : "");
+					mySearch.add(s);
+				}
 				idx++;
 			}
 			ObjectMapper mapper = new ObjectMapper();
@@ -98,26 +100,27 @@ public class SearchController {
 		int BUFFER_SIZE = 4096;
 		ServletContext context = request.getServletContext();
 		File downloadFile = new File(filePath);
-		String appPath = context.getRealPath("");
-		String fullPath = appPath + filePath;
-		FileInputStream inputStream = new FileInputStream(downloadFile);
-		String mimeType = context.getMimeType(fullPath);
-		if (mimeType == null) {
-			mimeType = "application/octet-stream";
+		if(downloadFile.exists()){
+			String appPath = context.getRealPath("");
+			String fullPath = appPath + filePath;
+			FileInputStream inputStream = new FileInputStream(downloadFile);
+			String mimeType = context.getMimeType(fullPath);
+			if (mimeType == null) {
+				mimeType = "application/pdf";
+			}
+			response.setContentType(mimeType);
+			response.setContentLength((int) downloadFile.length());
+			String headerKey = "Content-Disposition";
+			String headerValue = String.format("attachment; filename=\"%s\"",downloadFile.getName());
+			response.setHeader(headerKey, headerValue);
+			OutputStream outStream = response.getOutputStream();
+			byte[] buffer = new byte[BUFFER_SIZE];
+			int bytesRead = -1;
+			while ((bytesRead = inputStream.read(buffer)) != -1) {
+				outStream.write(buffer, 0, bytesRead);
+			}
+			inputStream.close();
+			outStream.close();
 		}
-		response.setContentType(mimeType);
-		response.setContentLength((int) downloadFile.length());
-		String headerKey = "Content-Disposition";
-		String headerValue = String.format("attachment; filename=\"%s\"",downloadFile.getName());
-		response.setHeader(headerKey, headerValue);
-		OutputStream outStream = response.getOutputStream();
-		byte[] buffer = new byte[BUFFER_SIZE];
-		int bytesRead = -1;
-		while ((bytesRead = inputStream.read(buffer)) != -1) {
-			outStream.write(buffer, 0, bytesRead);
-		}
-		inputStream.close();
-		outStream.close();
 	}
-
 }

@@ -18,6 +18,7 @@ public class Search {
 	private String id = "";
 	private String title = "";
 	private String url = "";
+	private String fileName = "";
 
 	public String getAuthor() {
 		return author;
@@ -60,5 +61,10 @@ public class Search {
 
 	public void setUrl(String url) {
 		this.url = url;
+		this.fileName = url.replaceAll("([\\s\\S])+/", "");
+	}
+
+	public String getFileName() {
+		return fileName;
 	}
 }

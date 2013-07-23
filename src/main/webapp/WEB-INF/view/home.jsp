@@ -37,7 +37,7 @@
 					<tr ng-repeat="result in results">
 						<td>{{result.title}}</td>
 						<td>{{result.author}}</td>
-						<td title=" "><a onclick="downloadFile({{result}});" target="_blank"
+						<td title=" "><a href="export/?filePath={{result.url}}" download="{{result.fileName}}" target="_blank"
 							class="btn btn-success">Download</a></td>
 					</tr>
 				</table>
