@@ -1,4 +1,4 @@
-var searchApp = angular.module("searchApp", []);
+var searchApp = angular.module("searchApp", ['ui.bootstrap']);
 
 searchApp.controller("SearchController", function($scope, pdfSearchService) {
 

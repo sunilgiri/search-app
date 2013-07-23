@@ -7,10 +7,9 @@
 <title>QB Search</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />" type="text/css" />
 <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" type="text/css" />
-<!-- <link rel="stylesheet" href="<c:url value="/resources/css/ng-table.css" />"	type="text/css" /> -->
 <script src="<c:url value="/resources/lib/angular.js"/>"></script>
 <script src="<c:url value="/resources/lib/jquery-1.9.1.js" />"></script>
-<!-- <script src="<c:url value="/resources/lib/ng-table.src.js"/>" ></script>  -->
+<script src="<c:url value="/resources/lib/ui-bootstrap-tpls-0.4.0.js" />"></script>
 <script src="<c:url value="/resources/js/searchApp.js"/>"></script>
 <script src="<c:url value="/resources/js/pdfSearchService.js"/>"></script>
 <script src="<c:url value="/resources/js/downloadFile.js"/>"></script>
@@ -26,21 +25,31 @@
 						<span class="help-block">{{result_text}}</span>
 			</form>
 		</div>
-		<div class="results-div">
-			<table class="table">
-				<tr>
-					<th>Title</th>
-					<th>Author</th>
-					<th>Download</th>
-				</tr>
-				<tr ng-repeat="result in results">
-					<td>{{result.title}}</td>
-					<td>{{result.author}}</td>
-					<td title=" "><a onclick="downloadFile({{result}});" target="_blank"
-						class="btn btn-success">Download</a></td>
-				</tr>
-			</table>
-		</div>
+		<tabset>
+		 	<tab heading="Search">
+			<div class="results-div">
+				<table class="table">
+					<tr>
+						<th>Title</th>
+						<th>Author</th>
+						<th>Download</th>
+					</tr>
+					<tr ng-repeat="result in results">
+						<td>{{result.title}}</td>
+						<td>{{result.author}}</td>
+						<td title=" "><a onclick="downloadFile({{result}});" target="_blank"
+							class="btn btn-success">Download</a></td>
+					</tr>
+				</table>
+			</div>
+			</tab>
+			<tab heading="Visualization">
+				Visualization goes here
+			</tab>
+			<tab heading="Upload">
+				Upload
+			</tab>
+		</tabset>
 
 	</div>
 </body>
