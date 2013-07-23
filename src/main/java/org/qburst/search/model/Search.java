@@ -45,13 +45,13 @@ public class Search {
 	}
 
 	public String getTitle() {
-		if (title.trim() == ""){
-			title = url.replaceAll("([\\s\\S])+/", "");
-		}
 		return title;
 	}
 
 	public void setTitle(String title) {
+		if (title.trim().equals("")){
+			title = url.replaceAll("([\\s\\S])+/", "");
+		}
 		this.title = title;
 	}
 
