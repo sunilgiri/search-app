@@ -12,7 +12,6 @@
 <script src="<c:url value="/resources/lib/ui-bootstrap-tpls-0.4.0.js" />"></script>
 <script src="<c:url value="/resources/js/searchApp.js"/>"></script>
 <script src="<c:url value="/resources/js/pdfSearchService.js"/>"></script>
-<script src="<c:url value="/resources/js/downloadFile.js"/>"></script>
 
 </head>
 <body ng-app="searchApp">
@@ -32,19 +31,22 @@
 					<tr>
 						<th>Title</th>
 						<th>Author</th>
-						<th>Download</th>
+						<th>Action</th>
 					</tr>
 					<tr ng-repeat="result in results">
-						<td>{{result.title}}</td>
-						<td>{{result.author}}</td>
+						<td class="title">{{result.title}}</td>
+						<td class="author">{{result.author}}</td>
 						<td><a href="export/?filePath={{result.url}}" download="{{result.fileName}}" target="_blank"
-							class="btn btn-success">Download</a></td>
+							class="btn btn-small btn-success">Download</a>
+							<a href="" class="btn btn-small btn-info infobtn" id="{{result.id}}">Info</a>
+						</td>
 					</tr>
 				</table>
 			</div>
 			</tab>
 			<tab heading="Visualization">
-				Visualization goes here
+				<div id="vis">
+				</div>
 			</tab>
 			<tab heading="Upload">
 				Upload

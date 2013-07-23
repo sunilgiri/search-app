@@ -24,16 +24,29 @@ body {
 	text-align: center;
 	border-width:1px !important;
   	border-style:solid !important;
-  	border-color:#357EBD !important;
-	height : 480px !important;
-	margin : 5px !important;
+  	border-color:#C13A33 !important;
+	height : 420px !important;
+	width: 100% !important;
+	max-height: 420px !important;
+	padding: 0px 5px 0px 5px;
 	overflow-y : scroll;
 }
-.results-div table th{
-	border: 1px solid #dddddd !important;
-	text-align: center;
+.results-div table th {
+	text-align: center !important;
+	color: #C13A33;
+	font-style: bold;
+	font-size: 17px; 
+}
+.results-div .title, .results-div .author {
+	text-align: left;
+}
+#vis{
+	border-width:1px !important;
+  	border-style:solid !important;
+  	border-color:#357EBD !important;
+	height : 420px !important;
+	max-height: 420px !important;
 }
 .results-div table td{
-	border: 1px solid #dddddd !important;
-	text-align: left;
+	border: 1px solid #C13A33 !important;
 }
