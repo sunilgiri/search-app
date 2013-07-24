@@ -51,7 +51,7 @@
 				<tab heading="Upload">
 					<form id="fileupload" method="POST" enctype="multipart/form-data">
 				        <div class="row upload-bar">
-				            <div class="span7">
+				            <div>
 				                <button class="btn btn-success fileinput-button">
 				                    <i class="icon-plus icon-white"></i>
 				                    <input type="file" name="files[]" multiple file-upload accept="application/pdf"/>

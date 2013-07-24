@@ -78,6 +78,7 @@ body {
 	border: 1px solid #dddddd !important;
 }
 .upload-table-div table td{
+	text-align: center!important;
 	border: 1px solid #dddddd !important;
 }
 .upload-table-div .item-name{
