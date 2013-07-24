@@ -5,7 +5,7 @@
 <head lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>QB Search</title>
-<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css" />" type="text/css" />
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" type="text/css" />
 <script src="<c:url value="/resources/lib/angular.js"/>"></script>
 <script src="<c:url value="/resources/lib/jquery-1.9.1.js" />"></script>
@@ -38,7 +38,7 @@
 						<td class="author">{{result.author}}</td>
 						<td><a href="export/?filePath={{result.url}}" download="{{result.fileName}}" target="_blank"
 							class="btn btn-small btn-success">Download</a>
-							<a href="" class="btn btn-small btn-info infobtn" id="{{result.id}}">Info</a>
+							<a href="" class="btn btn-small btn-info infobtn" id="{{result.id}}" ng-click="show(result)">Info</a>
 						</td>
 					</tr>
 				</table>

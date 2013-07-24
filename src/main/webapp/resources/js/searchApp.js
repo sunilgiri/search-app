@@ -1,5 +1,4 @@
 var searchApp = angular.module("searchApp", ['ui.bootstrap']);
-
 searchApp.directive('fileUpload', function () {
     return {
         scope: true,        //create a new scope
@@ -15,8 +14,14 @@ searchApp.directive('fileUpload', function () {
         }
     };
 });
-
-searchApp.controller("SearchController", function($scope, $http, pdfSearchService) {
+searchApp.controller("SearchController", function($scope, $http, $dialog, pdfSearchService) {
+	$scope.opts = {
+		    backdrop: true,
+		    keyboard: true,
+		    backdropClick: true,
+		    templateUrl:  'resources/template/show.html', 
+		    controller: 'ShowController'
+	};
 	$scope.submitSearch = function() {
 		$scope.results = [];
 		var keyword = $scope.searchKeyword;
@@ -31,7 +36,12 @@ searchApp.controller("SearchController", function($scope, $http, pdfSearchServic
 			$scope.$apply();
 		});
 	};
-    //listen for the file selected event
+	$scope.show = function(item){
+		angular.extend($scope.opts, {resolve: {item: function(){ return angular.copy(item); }}})
+	    var d = $dialog.dialog($scope.opts);
+	    d.open();
+	};
+	//listen for the file selected event
 	$scope.files = [];
     $scope.$on("fileSelected", function (event, args) {
         $scope.$apply(function () {            
@@ -71,4 +81,10 @@ searchApp.controller("SearchController", function($scope, $http, pdfSearchServic
         	alert("failed!");
         });
     };
+});
+searchApp.controller("ShowController", function($scope, item, dialog) {
+	$scope.item = item;
+	$scope.close = function(){
+	   dialog.close(undefined);
+	};
 });
