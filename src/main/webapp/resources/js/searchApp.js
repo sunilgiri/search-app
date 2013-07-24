@@ -16,7 +16,7 @@ searchApp.directive('fileUpload', function () {
     };
 });
 
-searchApp.controller("SearchController", function($scope, pdfSearchService) {
+searchApp.controller("SearchController", function($scope, $http, pdfSearchService) {
 	$scope.submitSearch = function() {
 		$scope.results = [];
 		var keyword = $scope.searchKeyword;
@@ -44,5 +44,31 @@ searchApp.controller("SearchController", function($scope, pdfSearchService) {
     });
     $scope.deleteFile = function(index) {
     	$scope.files.splice(index,1)
+    };
+    $scope.upload = function(){
+        $http({
+            method: 'POST',
+            url: "upload",
+            headers: { 'Content-Type': 'application/pdf' },
+            //This method will allow us to change how the data is sent up to the server
+            // for which we'll need to encapsulate the model data in 'FormData'
+            transformRequest: function (data) {
+                var formData = new FormData();
+                $.each(data.files,function(index,file){
+                	if(file.type == "application/pdf")
+                		formData.append("file" + index, file);
+                });
+                return formData;
+            },
+            //Create an object that contains the model and files which will be transformed
+            // in the above transformRequest method
+            data: { files: $scope.files }
+        }).
+        success(function (data, status, headers, config) {
+            alert("success!");
+        }).
+        error(function (data, status, headers, config) {
+        	alert("failed!");
+        });
     };
 });

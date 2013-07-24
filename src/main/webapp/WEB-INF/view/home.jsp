@@ -57,7 +57,7 @@
 				                    <input type="file" name="files[]" multiple file-upload accept="application/pdf"/>
 				                    <span>Add files...</span>
 				                </button>
-				                <button type="submit" class="btn btn-primary start">
+				                <button type="submit" class="btn btn-primary start" ng-click="upload()">
 				                    <i class="icon-upload icon-white"></i>
 				                    <span>Start upload</span>
 				                </button>
