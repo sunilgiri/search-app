@@ -10,8 +10,11 @@
 <script src="<c:url value="/resources/lib/angular.js"/>"></script>
 <script src="<c:url value="/resources/lib/jquery-1.9.1.js" />"></script>
 <script src="<c:url value="/resources/lib/ui-bootstrap-tpls-0.4.0.js" />"></script>
+<script src="<c:url value="/resources/lib/bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/lib/d3/d3.v2.min.js" />"></script>
 <script src="<c:url value="/resources/js/searchApp.js"/>"></script>
 <script src="<c:url value="/resources/js/pdfSearchService.js"/>"></script>
+<script src="<c:url value="/resources/js/visualize.js"/>"></script>
 
 </head>
 <body ng-app="searchApp">
@@ -36,7 +39,7 @@
 					<tr ng-repeat="result in results">
 						<td class="title">{{result.title}}</td>
 						<td class="author">{{result.author}}</td>
-						<td><a href="export/?filePath={{result.url}}" download="{{result.fileName}}" target="_blank"
+						<td class="action"><a href="export/?filePath={{result.url}}" download="{{result.fileName}}" target="_blank"
 							class="btn btn-small btn-success">Download</a>
 							<a href="" class="btn btn-small btn-info infobtn" id="{{result.id}}" ng-click="show(result)">Info</a>
 						</td>

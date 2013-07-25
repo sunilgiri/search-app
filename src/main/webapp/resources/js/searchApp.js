@@ -34,6 +34,7 @@ searchApp.controller("SearchController", function($scope, $http, $dialog, pdfSea
 				$scope.result_text = "Results of "+keyword;
 			}
 			$scope.$apply();
+			visualize(results);
 		});
 	};
 	$scope.show = function(item){

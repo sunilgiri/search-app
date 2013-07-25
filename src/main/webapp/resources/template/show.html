@@ -2,14 +2,14 @@
 	<h2>PDF Meta Information</h2>
 </div>
 <div class="modal-body">
-	<label>Title</label> {{item.title}}
-	<label>Author</label> {{item.author}}
+	<label>Title: <span>{{item.title}}</span></label> 
+	<label>Author: <span>{{item.author}}</span></label> 
 	<table class="table">
 		<tr>
 			<th>Occurrences</th>
 		</tr>
 		<tr ng-repeat="highlight in item.highlights">
-			<td><p>{{highlight}}</p></td>
+			<td><span ng-bind-html-unsafe="highlight"></span></td>
 		</tr>
 	</table>
 	

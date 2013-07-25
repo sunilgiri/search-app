@@ -53,7 +53,9 @@ public class SearchController {
 			query.setFields("content", "author", "url", "title");
 			query.setHighlight(true);
 			query.addHighlightField("content");
-			query.setHighlightSnippets(3);
+			query.setHighlightSnippets(1000);
+			query.setHighlightSimplePost("</span>");
+			query.setHighlightSimplePre("<span class='label label-important'>");
 			QueryResponse response = solr.query(query);
 			SolrDocumentList results = response.getResults();
 			Map<String, Map<String, List<String>>> highlights = response

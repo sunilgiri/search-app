@@ -1,6 +1,9 @@
 /*style.css*/
 body {
     overflow:hidden;
+    width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 }
 .search-text{
 	width : 50% !important;
@@ -12,6 +15,13 @@ body {
 #search-btn{
 	width : 8% !important;	
 }
+.tab-content{
+	border: 1px solid #ddd;
+	width: 100%;
+	height: 430px;
+	border-top: 0px;
+	margin-top: -23px;
+}
 .search-div{
 	text-align: center;
 	margin : 5px !important;
@@ -22,14 +32,14 @@ body {
 .results-div{
 	display:none;
 	text-align: center;
-	border-width:1px !important;
-  	border-style:solid !important;
-  	border-color:#C13A33 !important;
-	height : 420px !important;
-	width: 100% !important;
-	max-height: 420px !important;
-	padding: 0px 5px 0px 5px;
-	overflow-y : scroll;
+	border: 3px solid #C13A33;
+	height: 408px !important;
+	width: 98% !important;
+	max-height: 408px !important;
+	overflow-y: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 8px;
 }
 .results-div table th {
 	text-align: center !important;
@@ -40,12 +50,17 @@ body {
 .results-div .title, .results-div .author {
 	text-align: left;
 }
+.results-div .action{
+	text-align: center !important;
+}
+
 #vis{
-	border-width:1px !important;
-  	border-style:solid !important;
-  	border-color:#357EBD !important;
-	height : 420px !important;
-	max-height: 420px !important;
+	height : 415px !important;
+	width: 1229px !important;
+	max-height: 415px !important;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 12px;
 }
 .results-div table td{
 	border: 1px solid #C13A33 !important;
@@ -60,11 +75,18 @@ body {
 	direction: ltr;
 	cursor: pointer;
 }
+#fileUpload{
+	margin: 0px !important;	
+}
 .upload-bar{
 	text-align: center;
-	margin: 20px;
-	border: 1px solid #428BCA !important;
-	border-radius: 8px;
+	border: 3px solid #C13A33;
+	height: 408px !important;
+	width: 98% !important;
+	max-height: 408px !important;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 8px;
 }
 .upload-bar div{
 	margin-top : 16px;
@@ -83,4 +105,25 @@ body {
 }
 .upload-table-div .item-name{
 	text-align: left !important;
+}
+.modal-header h2{
+	text-align: center;
+	color: #51A351;
+}
+.modal-body label{
+	color: #C13A33;
+	font-weight: bold;
+	font-size: 17px;
+}
+.modal-body label span{
+	color: black;
+	font-weight: normal;
+	font-size: 14px;
+}
+.modal-body table th{
+	color: #51a351;
+	font-size: 17px;
+}
+.modal-body table{
+	border: 2px solid #389FBD;
 }
