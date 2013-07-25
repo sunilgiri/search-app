@@ -33,7 +33,7 @@ function visualize(nodes) {
 	    .style("fill", function(d, i) { return color(i); })
 	    .call(force.drag)
 	    .append("svg:title")
-	    .text(function(d){ return d.title; });;
+	    .text(function(d){ return d.fileName; });;
 	force.on("tick", function(e) {
 		  var q = d3.geom.quadtree(nodes),
 		      i = 0,

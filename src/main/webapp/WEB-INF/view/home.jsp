@@ -10,7 +10,6 @@
 <script src="<c:url value="/resources/lib/angular.js"/>"></script>
 <script src="<c:url value="/resources/lib/jquery-1.9.1.js" />"></script>
 <script src="<c:url value="/resources/lib/ui-bootstrap-tpls-0.4.0.js" />"></script>
-<script src="<c:url value="/resources/lib/bootstrap.min.js" />"></script>
 <script src="<c:url value="/resources/lib/d3/d3.v2.min.js" />"></script>
 <script src="<c:url value="/resources/js/searchApp.js"/>"></script>
 <script src="<c:url value="/resources/js/pdfSearchService.js"/>"></script>
